@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-  width: 480px;
+  width: 970px;
   height: 120px;
   margin: 20px auto 0 auto;
   border: 1px solid #ddd;
@@ -13,10 +13,57 @@ body {
 }
 
 .main {
-  width: 480px;
-  height: 520px;
+  width: 970px;
+  min-height: 520px;
   margin: 20px auto 0 auto;
   border: 1px solid #ddd;
   border-radius: 10px;
   background: #C6C7C8;
+}
+
+#nav-buttons {
+  width: 20%;
+  margin: 20px  auto;
+}
+
+#nav-buttons button:hover {
+  background: #408AD2;
+  color: #fff;
+}
+
+h1 {
+  margin: 20px;
+  color: #EFF3D9;
+}
+
+form#search-term {
+  margin: 0 20px 0 20px;
+}
+
+#search-results {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#search-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 20px 0 20px 0;
+  height: 90px;
+  border-bottom: 2px dotted #408AD2;
+}
+
+.discription {
+  display: inline-block;
+  text-decoration: none;
+  height: 40px;
+  vertical-align: middle;
+  margin: 0 20px 30px 20px;
+}
+
+.discription:hover {
+  text-decoration: underline;
 }

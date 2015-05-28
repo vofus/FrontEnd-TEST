@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Search for YouTube</title>
+  <title>YouTube Search</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="header">
-    
+    <h1>YouTube Search</h1>
+    <form id="search-term">
+        <input type="search" name="firstname" id="query" placeholder="Что ищем?" value="Spring MVC">
+        <input type="submit" id="chooseButton" class="submit" name="Submit" value="Поиск">
+    </form>
   </div>
   <div class="main">
-    
+    <div id="search-results"></div>
+    <div id="nav-buttons">
+        <!-- <button id="page_1">1</button>
+        <button id="page_2">2</button>
+        <button id="page_3">3</button>
+        <button id="page_4">4</button> -->
+    </div>
   </div>
+    <!-- jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
