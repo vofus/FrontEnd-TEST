@@ -67,3 +67,9 @@ li {
 .discription:hover {
   text-decoration: underline;
 }
+
+#sortBtn {
+  position: absolute;
+  top: 98px;
+  left: 72%;
+}

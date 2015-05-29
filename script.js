@@ -27,10 +27,29 @@ function getRequest(endpoint, searchString) {
         console.log(data);
         ytdata = data;
         showResults(data.items, 0, 5);
-        //console.log("data.items: " + data.items);
+        console.log("data.items: " + data.items);
+        //console.log(data.items[1].snippet.title);
+
+        $("button#sortBtn").click(function() { // Вызов сортировки по имени
+            sortElements(data.items);
+            //var $target = $('.sorting ul');
+            // console.log($elements);
+        });
     });
 }
 
+function sortElements(elements) { // Сортировка по имени
+    var sorting = elements.sort(function(obj1, obj2) {
+      var a = obj1.snippet.title.toLowerCase();
+      var b = obj2.snippet.title.toLowerCase();
+      //return a.snippet.title-b.snippet.title;
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
+    console.log(sorting);
+    showResults(sorting, 0, 5);
+}
 
 function showResults(results, startPage, endPage) {
     var html = "<ul>";
@@ -51,8 +70,8 @@ function showResults(results, startPage, endPage) {
         html += '</a>';
         html += '<a class="discription" href="https://www.youtube.com/watch?v=' + value.id.videoId + '">' + discStr + '</a>';
         html += "</li>";
-        console.log("Title: " + discStr);
-        console.log("Title length: " + discStr.length);
+        //console.log("Title: " + discStr);
+        //console.log("Title length: " + discStr.length);
     });
     html += "</ul>";        
     $('#search-results').html(html);
