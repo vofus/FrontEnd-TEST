@@ -50,6 +50,10 @@ form#search-term {
   padding: 0;
 }
 
+img {
+  height: 90px;
+}
+
 li {
   margin: 20px 0 20px 0;
   height: 90px;
