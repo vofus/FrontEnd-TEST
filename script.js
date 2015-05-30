@@ -35,14 +35,35 @@ function getRequest(endpoint, searchString) {
             //var $target = $('.sorting ul');
             // console.log($elements);
         });
+
+        $("#filter").keyup(function() {       // Вызов фильтра по имени
+          liveFilter(data.items);
+          //console.log("Нажимаем кнопки в #filter"); // Проверка привязки события к форме
+        });
     });
 }
 
-function sortElements(elements) { // Сортировка по имени
+function liveFilter(filterElements) {     // Фильтр по имени
+  var filterRes = $("#filter").val();
+  var myExp = new RegExp(filterRes, "i");
+  var refreshElements = [];
+  $.each(filterElements, function(key, val) {
+    if (val.snippet.title.search(myExp) != -1) {
+      refreshElements.push(filterElements[key]);
+      console.log("test");
+    }
+  });
+  showResults(refreshElements, 0, 5);
+
+  console.log(refreshElements);
+}
+
+function sortElements(elements) {       // Сортировка по имени
     var sorting = elements.sort(function(obj1, obj2) {
       var a = obj1.snippet.title.toLowerCase();
       var b = obj2.snippet.title.toLowerCase();
-      //return a.snippet.title-b.snippet.title;
+      // title каждого элемента приводится к нижнему регистру,
+      // чтобы на порядок сортировки не влияли заглавные буквы
       if (a < b) return -1;
       if (a > b) return 1;
       return 0;
@@ -79,16 +100,16 @@ function showResults(results, startPage, endPage) {
       navBtns +=  '<button id="page_1">1</button>';
     } else if (results.length > 5 && results.length <= 10) {
       navBtns +=  '<button id="page_1">1</button>' + 
-                '<button id="page_2">2</button>';
+                  '<button id="page_2">2</button>';
     } else if (results.length > 10 && results.length <= 15) {
       navBtns +=  '<button id="page_1">1</button>' + 
-                '<button id="page_2">2</button>' +
-                '<button id="page_3">3</button>';
+                  '<button id="page_2">2</button>' +
+                  '<button id="page_3">3</button>';
     } else if (results.length > 15 && results.length <= 20) {
       navBtns +=  '<button id="page_1">1</button>' + 
-                '<button id="page_2">2</button>' +
-                '<button id="page_3">3</button>' +
-                '<button id="page_4">4</button>';
+                  '<button id="page_2">2</button>' +
+                  '<button id="page_3">3</button>' +
+                  '<button id="page_4">4</button>';
     }
     $('#nav-buttons').html(navBtns);
 
