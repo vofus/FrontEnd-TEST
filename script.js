@@ -32,8 +32,6 @@ function getRequest(endpoint, searchString) {
 
         $("button#sortBtn").click(function() { // Вызов сортировки по имени
             sortElements(data.items);
-            //var $target = $('.sorting ul');
-            // console.log($elements);
         });
 
         $("#filter").keyup(function() {       // Вызов фильтра по имени
@@ -54,6 +52,10 @@ function liveFilter(filterElements) {     // Фильтр по имени
     }
   });
   showResults(refreshElements, 0, 5);
+
+  $("button#sortBtn").click(function() { // Переопределение сортировки по имени
+      sortElements(refreshElements);     // для сортировки отфильтрованного массива 
+  });
 
   console.log(refreshElements);
 }
