@@ -7,7 +7,7 @@ $(document).ready(function() {
         event.preventDefault();
         var searchString = $('#query').val();
         // console.log(searchString);
-        var endpoint = "https://www.googleapis.com/youtube/v3/search"
+        var endpoint = "https://www.googleapis.com/youtube/v3/search";
         getRequest(endpoint, searchString);
 
     });
@@ -87,7 +87,7 @@ function showResults(results, startPage, endPage) {
           discStr = value.snippet.title;
         }
         thumbNailImgUrl = value.snippet.thumbnails.default.url;
-        html += "<li>"
+        html += "<li>";
         html += '<a href="https://www.youtube.com/watch?v=' + value.id.videoId + '">';
         html += ("<img src=" + value.snippet.thumbnails.default.url + ">");
         html += '</a>';
