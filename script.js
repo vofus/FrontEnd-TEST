@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $("#search-term").submit(function(event) {
 
-        console.log("button hit");
-        console.log($('#query').val());
+        // console.log("button hit");
+        // console.log($('#query').val());
 
         event.preventDefault();
         var searchString = $('#query').val();
-        console.log(searchString);
+        // console.log(searchString);
         var endpoint = "https://www.googleapis.com/youtube/v3/search"
         getRequest(endpoint, searchString);
 
@@ -22,12 +22,12 @@ function getRequest(endpoint, searchString) {
     };
 
     $.getJSON(endpoint, params, function(data) {
-        console.log("get json called");
-        console.log("params: " + params.part + params.key + params.q + params.maxResults);
-        console.log(data);
+        // console.log("get json called");
+        // console.log("params: " + params.part + params.key + params.q + params.maxResults);
+        // console.log(data);
         ytdata = data;
         showResults(data.items, 0, 5);
-        console.log("data.items: " + data.items);
+        // console.log("data.items: " + data.items);
         //console.log(data.items[1].snippet.title);
 
         $("button#sortBtn").click(function() { // Вызов сортировки по имени
@@ -48,7 +48,7 @@ function liveFilter(filterElements) {     // Фильтр по имени
   $.each(filterElements, function(key, val) {
     if (val.snippet.title.search(myExp) != -1) {
       refreshElements.push(filterElements[key]);
-      console.log("test");
+      // console.log("test");
     }
   });
   showResults(refreshElements, 0, 5);
@@ -57,7 +57,7 @@ function liveFilter(filterElements) {     // Фильтр по имени
       sortElements(refreshElements);     // для сортировки отфильтрованного массива 
   });
 
-  console.log(refreshElements);
+  // console.log(refreshElements);
 }
 
 function sortElements(elements) {       // Сортировка по имени
@@ -70,7 +70,7 @@ function sortElements(elements) {       // Сортировка по имени
       if (a > b) return 1;
       return 0;
     });
-    console.log(sorting);
+    // console.log(sorting);
     showResults(sorting, 0, 5);
 }
 
