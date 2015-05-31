@@ -32,7 +32,6 @@ function getRequest(endpoint, searchString) {
         // console.log("get json called");
         // console.log("params: " + params.part + params.key + params.q + params.maxResults);
         // console.log(data);
-        ytdata = data;
         showResults(data.items, 0, 5);
         // console.log("data.items: " + data.items);
         //console.log(data.items[1].snippet.title);
