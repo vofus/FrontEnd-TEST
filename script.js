@@ -8,7 +8,12 @@ $(document).ready(function() {
         var searchString = $('#query').val();
         // console.log(searchString);
         var endpoint = "https://www.googleapis.com/youtube/v3/search";
-        getRequest(endpoint, searchString);
+        // Проверка на попытку ввода пустой строки
+        if (searchString !== "") {
+          getRequest(endpoint, searchString);
+        } else {
+          return false;
+        }
 
     });
 });
