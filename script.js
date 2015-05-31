@@ -88,16 +88,17 @@ function showResults(results, startPage, endPage) {
         }
         thumbNailImgUrl = value.snippet.thumbnails.default.url;
         html += "<li>";
-        html += '<a href="https://www.youtube.com/watch?v=' + value.id.videoId + '">';
+        html += '<a target="_blank" href="https://www.youtube.com/watch?v=' + value.id.videoId + '">';
         html += ("<img src=" + value.snippet.thumbnails.default.url + ">");
         html += '</a>';
-        html += '<a class="discription" href="https://www.youtube.com/watch?v=' + value.id.videoId + '">' + discStr + '</a>';
+        html += '<a target="_blank" class="discription" href="https://www.youtube.com/watch?v=' + value.id.videoId + '">' + discStr + '</a>';
         html += "</li>";
         //console.log("Title: " + discStr);
         //console.log("Title length: " + discStr.length);
     });
     html += "</ul>";        
     $('#search-results').html(html);
+    
     if (results.length > 0 && results.length <= 5) {
       navBtns +=  '<button id="page_1">1</button>';
     } else if (results.length > 5 && results.length <= 10) {
