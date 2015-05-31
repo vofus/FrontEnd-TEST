@@ -12,6 +12,8 @@ $(document).ready(function() {
         if (searchString !== "") {
           getRequest(endpoint, searchString);
         } else {
+          //alert("Введите поисковый запрос");
+          $('#query').focus();
           return false;
         }
 
