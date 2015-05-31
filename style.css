@@ -22,6 +22,14 @@ body {
   background: #C6C7C8;
 }
 
+input#query:focus {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+input#filter:focus {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 #nav-buttons {
   width: 20%;
   margin: 20px  auto;
