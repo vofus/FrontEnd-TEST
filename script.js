@@ -40,6 +40,11 @@ function getRequest(endpoint, searchString) {
             sortElements(data.items);
         });
 
+        $("#filter-results").submit(function(event) {  // Чтобы не перезагружалась
+          event.preventDefault();                      // страница при нажатии на Enter
+          liveFilter(data.items);
+        });
+
         $("#filter").keyup(function() {       // Вызов фильтра по имени
           liveFilter(data.items);
           //console.log("Нажимаем кнопки в #filter"); // Проверка привязки события к форме
